@@ -1,7 +1,10 @@
 <script lang="ts" setup>
-import { ref, watch } from 'vue'
+import { ref, watch, onBeforeMount } from 'vue'
 import Translate from '../Translate/Translate.vue'
 import Startpage from '../Startpage/Startpage.vue'
+import { usePiniaStore } from '@/stores/pinia'
+
+const store = usePiniaStore()
 
 import { useRouter } from 'vue-router'
 const route = useRouter()
@@ -15,19 +18,20 @@ watch(
   }
 )
 
-const startpageData = {
-  title: 'Huvudrubrik',
-  preamble:
-    'Detta är en text som beskriver sidan lite snabbt eller försöker fånga besökarens uppmärksamhet.',
-}
+onBeforeMount(async () => {
+  pageData.value.titleTextBlocks = await store.setBlocks()
+})
+
+const pageData = ref({
+  title: '',
+  preamble: '',
+  titleTextBlocks: [],
+})
 </script>
 
 <template>
   <main class="main">
-    <Startpage
-      v-if="currentRouteName === 'startpage' && startpageData"
-      :data="startpageData"
-    />
+    <Startpage :data="pageData" v-if="currentRouteName === 'startpage'" />
     <Translate v-if="currentRouteName === 'translate'" />
   </main>
 </template>
