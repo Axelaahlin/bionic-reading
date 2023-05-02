@@ -1,8 +1,10 @@
 import { defineStore } from 'pinia'
+import { getSanityData } from '@/client'
 
 export const usePiniaStore = defineStore('Bionic', {
   state: () => ({
     bionicMode: false,
+    titleTextBlocks: [] as any,
   }),
   actions: {
     setBionicMode() {
@@ -33,6 +35,13 @@ export const usePiniaStore = defineStore('Bionic', {
         .join(' ')
 
       return htmlString
+    },
+    async setBlocks() {
+      const titleTextBlocks = await getSanityData(
+        '*[_type == "titleTextBlock"]'
+      )
+      this.titleTextBlocks = titleTextBlocks
+      return titleTextBlocks
     },
   },
 })

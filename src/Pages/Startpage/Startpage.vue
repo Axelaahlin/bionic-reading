@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { PropType } from 'vue'
+import { PropType, onBeforeMount } from 'vue'
 import { StartpageInterface } from './interface'
 import { usePiniaStore } from '@/stores/pinia'
 const store = usePiniaStore()
@@ -10,26 +10,13 @@ const props = defineProps({
     required: true,
   },
 })
+
+console.log(props.data.titleTextBlocks)
 </script>
 
 <template>
-  <div class="start-page">
-    <h2
-      v-if="props.data.title"
-      v-html="
-        store.bionicMode
-          ? store.translateToBionicReading(props.data.title)
-          : props.data.title
-      "
-    />
-    <p
-      v-if="props.data.preamble"
-      v-html="
-        store.bionicMode
-          ? store.translateToBionicReading(props.data.preamble)
-          : props.data.preamble
-      "
-    ></p>
+  <div v-for="block in props.data.titleTextBlocks">
+    {{ block }}
   </div>
 </template>
 

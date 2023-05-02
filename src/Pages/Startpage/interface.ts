@@ -1,10 +1,16 @@
+// export interface StartpageInterface {
+//   title: string
+//   preamble: string
+//   ImageTextBlocks?: titleTextBlock[]
+// }
+
 export interface StartpageInterface {
   title: string
   preamble: string
-  ImageTextBlocks?: ImageTextBlock[]
+  titleTextBlocks: titleTextBlock[]
 }
 
-interface ImageTextBlock {
+interface titleTextBlock {
   title: string
   text: string
   image?: string

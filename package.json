@@ -8,6 +8,7 @@
     "build": "vue-cli-service build"
   },
   "dependencies": {
+    "@sanity/client": "^5.4.2",
     "core-js": "^3.8.3",
     "pinia": "^2.0.35",
     "vue": "^3.2.13",
