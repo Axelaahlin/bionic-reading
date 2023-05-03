@@ -1,45 +1,42 @@
 <script lang="ts" setup>
 import { ref, watch, onBeforeMount } from 'vue'
-import { useRouter } from 'vue-router'
-import { getSanityData } from '@/client'
-import { usePiniaStore } from '@/stores/pinia'
-
 import Translate from '../Translate/Translate.vue'
-import Startpage from '../Startpage/Startpage.vue'
+import PageTemplate from '@/Pages/PageTemplate/PageTemplate.vue'
+import { usePiniaStore } from '@/stores/pinia'
+const store = usePiniaStore()
 
+import { useRouter } from 'vue-router'
 const route = useRouter()
 
-const currentRouteName = ref(route.currentRoute.value.name)
-const currentPageData = ref({
-  title: '',
-  preamble: '',
-  titleTextBlocks: [],
-})
+const currentRouteName = ref()
+const currentPageData = ref()
 
 onBeforeMount(async () => {
-  const data = await getSanityData(
-    `*[_type == "${currentRouteName.value as string}"]`
-  )
-
-  currentPageData.value.title = data[0].title
-  currentPageData.value.preamble = data[0].preamble
-  currentPageData.value.titleTextBlocks = data[0].titleTextBlocks
+  currentRouteName.value = route.currentRoute.value.name
+  currentPageData.value = await store.getCurrenPageData(currentRouteName.value)
 })
 
 watch(
   () => route.currentRoute.value.name,
-  (newCurrentRoute) => {
+  async (newCurrentRoute) => {
     currentRouteName.value = newCurrentRoute
+    currentPageData.value = await store.getCurrenPageData(
+      currentRouteName.value
+    )
   }
 )
 </script>
 
 <template>
   <main class="main">
-    <Startpage
+    <PageTemplate
+      v-if="
+        (currentRouteName === 'pageone' || currentRouteName === 'pagetwo') &&
+        currentPageData
+      "
       :data="currentPageData"
-      v-if="currentRouteName === 'startpage'"
     />
-    <Translate v-if="currentRouteName === 'translate'" />
+
+    <Translate v-else-if="currentRouteName === 'translate'" />
   </main>
 </template>

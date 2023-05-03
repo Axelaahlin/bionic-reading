@@ -1,19 +1,26 @@
-# bionic-reading
+För att starta upp projektet behöver du följa dessa steg.
 
-## Project setup
-```
-npm install
-```
+1. clona ner projektet lokalt på din dator.
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+2. kör cd in i rätt mapp, det vill säga bionic reading/bionic-reading
+3. Ladda ner följande npm paket
 
-### Compiles and minifies for production
-```
-npm run build
-```
+   1. npm install vue@next
+   2. npm install @sanity/client
+   3. npm install @sanity/image-url
+   4. npm install pinia
+   5. npm install vue@next
+   6. npm install vue-router
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+4. Om du vill vara sidan kan du köra en npm install efter du dragit ner alla paket.
+
+5. Om du är i rätt mapp kan du sedan köra npm run serve för att dra igång projektet.
+
+6. Du behöver även starta sanity.io genom att cd in i mappen 'y'
+   , dvs /bionic reading/bionic-reading/y och köra npm run dev
+
+7. Nu ska allt vara igång och du kan börja kolla igenom det!
+
+---
+
+OBS! Skulle det vara några problem så hör av dig till mig på discord så svarar jag oftast väldigt fort!

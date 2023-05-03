@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { PropType } from 'vue'
-import { TitleTextBlock, SanityImage } from './interface'
+import { TitleTextBlock } from './interface'
 import { usePiniaStore } from '@/stores/pinia'
 import { urlBuilder } from '@/client'
 const store = usePiniaStore()
@@ -63,6 +63,10 @@ const props = defineProps({
 
   &__image {
     margin-right: 20px;
+    img {
+      width: 300px;
+      height: 200px;
+    }
   }
 }
 </style>

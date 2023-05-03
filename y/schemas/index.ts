@@ -1,5 +1,4 @@
 import TitleTextBlock from './TitleTextBlock'
-import StartPage from './StartPage'
-import InfoPage from './InfoPage'
+import InfoPage from './Page'
 
-export const schemaTypes = [TitleTextBlock, StartPage, InfoPage]
+export const schemaTypes = [TitleTextBlock, InfoPage]

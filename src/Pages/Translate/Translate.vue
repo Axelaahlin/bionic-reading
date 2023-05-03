@@ -11,7 +11,10 @@ const h1 = 'Skriv in din text här in under'
 </script>
 <template>
   <main class="main">
-    <h1 v-html="store.bionicMode ? store.translateToBionicReading(h1) : h1" />
+    <h2
+      v-html="store.bionicMode ? store.translateToBionicReading(h1) : h1"
+      class="page-title"
+    />
 
     <div class="content">
       <input
@@ -31,13 +34,12 @@ const h1 = 'Skriv in din text här in under'
 
 <style lang="scss">
 .main {
-  padding: 10px;
   min-height: 50dvh;
 
-  h1 {
+  h2.page-title {
     font-size: 40px;
     text-align: center;
-    margin: 0 0 10px 0;
+    margin: 20px 0 10px 0;
     font-weight: normal;
   }
   .content {
@@ -84,16 +86,5 @@ const h1 = 'Skriv in din text här in under'
   h2 {
     font-weight: normal;
   }
-}
-
-.btn {
-  min-width: 200px;
-  text-align: center;
-  padding: 10px;
-  border: none;
-  background-color: brown;
-  color: white;
-  border-radius: 10px;
-  cursor: pointer;
 }
 </style>

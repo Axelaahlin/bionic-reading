@@ -4,7 +4,6 @@ import { getSanityData } from '@/client'
 export const usePiniaStore = defineStore('Bionic', {
   state: () => ({
     bionicMode: false,
-    titleTextBlocks: [] as any,
   }),
   actions: {
     setBionicMode() {
@@ -36,12 +35,13 @@ export const usePiniaStore = defineStore('Bionic', {
 
       return htmlString
     },
-    async setBlocks() {
-      const titleTextBlocks = await getSanityData(
-        '*[_type == "titleTextBlock"]'
+    async getCurrenPageData(route: string) {
+      //Hämtar alla sidor som matchar, route skickas in som routens namn som säts i router/index.ts
+      const data = await getSanityData(
+        `*[_type == "page" && page == "${route}"]`
       )
-      this.titleTextBlocks = titleTextBlocks
-      return titleTextBlocks
+      // returnerar data[0] för att få ut objektet direkt.
+      return data[0]
     },
   },
 })

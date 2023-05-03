@@ -16,7 +16,7 @@ export async function getSanityData(query: string) {
 const builder = imageUrlBuilder(client)
 
 export const urlBuilder = (source: any) => {
-  return builder.image(source).width(200).height(200)
+  return builder.image(source)
 }
 
 export default client

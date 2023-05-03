@@ -4,22 +4,17 @@ import PageComponentSelector from '@/Pages/PageComponentSelector/PageComponentSe
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
-    name: 'startpage',
+    name: 'pageone',
+    component: PageComponentSelector,
+  },
+  {
+    path: '/information',
+    name: 'pagetwo',
     component: PageComponentSelector,
   },
   {
     path: '/translate',
     name: 'translate',
-    component: PageComponentSelector,
-  },
-  {
-    path: '/information-ett',
-    name: 'information-ett',
-    component: PageComponentSelector,
-  },
-  {
-    path: '/information-två',
-    name: 'information-två',
     component: PageComponentSelector,
   },
 ]
