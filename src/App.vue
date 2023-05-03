@@ -17,4 +17,10 @@ import Header from './components/Header/Header.vue'
   letter-spacing: 0.0125rem;
   line-height: 1.75rem;
 }
+
+p {
+  letter-spacing: 0.0125rem;
+  line-height: 1.75rem;
+  font-size: 16px;
+}
 </style>

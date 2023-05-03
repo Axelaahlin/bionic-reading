@@ -1,19 +1,7 @@
-// export interface StartpageInterface {
-//   title: string
-//   preamble: string
-//   ImageTextBlocks?: titleTextBlock[]
-// }
+import { TitleTextBlock } from '@/components/TitleTextblock/interface'
 
 export interface StartpageInterface {
   title: string
   preamble: string
-  titleTextBlocks: titleTextBlock[]
-}
-
-interface titleTextBlock {
-  title: string
-  text: string
-  image?: string
-  url?: string
-  buttonLabel?: string
+  titleTextBlocks: TitleTextBlock[]
 }

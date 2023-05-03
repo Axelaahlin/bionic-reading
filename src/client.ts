@@ -1,4 +1,5 @@
 import { createClient } from '@sanity/client'
+import imageUrlBuilder from '@sanity/image-url'
 
 export const client = createClient({
   projectId: 'e4xded3l',
@@ -10,6 +11,12 @@ export const client = createClient({
 export async function getSanityData(query: string) {
   const data = await client.fetch(query)
   return data
+}
+
+const builder = imageUrlBuilder(client)
+
+export const urlBuilder = (source: any) => {
+  return builder.image(source).width(200).height(200)
 }
 
 export default client

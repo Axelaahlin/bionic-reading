@@ -1,15 +1,30 @@
 <script lang="ts" setup>
 import { ref, watch, onBeforeMount } from 'vue'
-import Translate from '../Translate/Translate.vue'
-import Startpage from '../Startpage/Startpage.vue'
+import { useRouter } from 'vue-router'
+import { getSanityData } from '@/client'
 import { usePiniaStore } from '@/stores/pinia'
 
-const store = usePiniaStore()
+import Translate from '../Translate/Translate.vue'
+import Startpage from '../Startpage/Startpage.vue'
 
-import { useRouter } from 'vue-router'
 const route = useRouter()
 
 const currentRouteName = ref(route.currentRoute.value.name)
+const currentPageData = ref({
+  title: '',
+  preamble: '',
+  titleTextBlocks: [],
+})
+
+onBeforeMount(async () => {
+  const data = await getSanityData(
+    `*[_type == "${currentRouteName.value as string}"]`
+  )
+
+  currentPageData.value.title = data[0].title
+  currentPageData.value.preamble = data[0].preamble
+  currentPageData.value.titleTextBlocks = data[0].titleTextBlocks
+})
 
 watch(
   () => route.currentRoute.value.name,
@@ -17,21 +32,14 @@ watch(
     currentRouteName.value = newCurrentRoute
   }
 )
-
-onBeforeMount(async () => {
-  pageData.value.titleTextBlocks = await store.setBlocks()
-})
-
-const pageData = ref({
-  title: '',
-  preamble: '',
-  titleTextBlocks: [],
-})
 </script>
 
 <template>
   <main class="main">
-    <Startpage :data="pageData" v-if="currentRouteName === 'startpage'" />
+    <Startpage
+      :data="currentPageData"
+      v-if="currentRouteName === 'startpage'"
+    />
     <Translate v-if="currentRouteName === 'translate'" />
   </main>
 </template>

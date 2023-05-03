@@ -12,6 +12,16 @@ const routes: Array<RouteRecordRaw> = [
     name: 'translate',
     component: PageComponentSelector,
   },
+  {
+    path: '/information-ett',
+    name: 'information-ett',
+    component: PageComponentSelector,
+  },
+  {
+    path: '/information-två',
+    name: 'information-två',
+    component: PageComponentSelector,
+  },
 ]
 
 const router = createRouter({

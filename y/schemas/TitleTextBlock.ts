@@ -11,12 +11,12 @@ export default {
     {
       title: 'Text',
       name: 'text',
-      type: 'string',
+      type: 'text',
     },
     {
-      title: 'Page',
-      name: 'page',
-      type: 'string',
+      title: 'Image',
+      name: 'image',
+      type: 'image',
     },
   ],
 }

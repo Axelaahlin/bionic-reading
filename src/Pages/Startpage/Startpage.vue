@@ -1,7 +1,8 @@
 <script lang="ts" setup>
-import { PropType, onBeforeMount } from 'vue'
+import { PropType } from 'vue'
 import { StartpageInterface } from './interface'
 import { usePiniaStore } from '@/stores/pinia'
+import TitleTextBlock from '@/components/TitleTextblock/TitleTextBlock.vue'
 const store = usePiniaStore()
 
 const props = defineProps({
@@ -10,13 +11,33 @@ const props = defineProps({
     required: true,
   },
 })
-
-console.log(props.data.titleTextBlocks)
 </script>
 
 <template>
-  <div v-for="block in props.data.titleTextBlocks">
-    {{ block }}
+  <div class="start-page">
+    <h2
+      :class="{ bionic: store.bionicMode }"
+      v-if="props.data.title"
+      v-html="
+        store.bionicMode
+          ? store.translateToBionicReading(props.data.title)
+          : props.data.title
+      "
+    />
+    <p
+      v-if="props.data.preamble"
+      v-html="
+        store.bionicMode
+          ? store.translateToBionicReading(props.data.preamble)
+          : props.data.preamble
+      "
+    />
+
+    <TitleTextBlock
+      v-if="props.data.titleTextBlocks"
+      v-for="block in props.data.titleTextBlocks"
+      :data="block"
+    />
   </div>
 </template>
 
@@ -25,13 +46,12 @@ console.log(props.data.titleTextBlocks)
   padding: 10px;
 
   h2 {
+    color: brown;
     font-size: 32px;
-    font-weight: normal;
     margin-bottom: 10px;
-  }
-
-  p {
-    font-size: 16px;
+    &.bionic {
+      font-weight: normal;
+    }
   }
 }
 </style>

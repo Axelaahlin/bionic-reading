@@ -13,6 +13,8 @@ const store = usePiniaStore()
       <RouterLink to="/">StartPage</RouterLink>
 
       <RouterLink to="/translate"> Test page </RouterLink>
+      <RouterLink to="/information-ett"> InfoPage 1 </RouterLink>
+      <RouterLink to="/information-två"> InfoPage 2 </RouterLink>
     </nav>
     <button class="btn" @click="store.setBionicMode">
       {{ store.bionicMode ? 'Stäng av bionicMode' : 'Sätt på bionicMode' }}
