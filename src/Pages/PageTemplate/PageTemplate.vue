@@ -1,25 +1,23 @@
+<!-- 
+    Denna komponent renderar ut allt på sidan beroende på vad för data den får och om den inte får något data så visas min devPage 
+    där jag har suttit och testat olika saker. 
+ -->
+
 <script lang="ts" setup>
-import { PropType, onBeforeMount, ref } from 'vue'
+import { PropType } from 'vue'
 import { PageTemplateInterface } from './interface'
 import { urlBuilder } from '@/client'
 import { usePiniaStore } from '@/stores/pinia'
 import TitleTextBlock from '@/components/TitleTextblock/TitleTextBlock.vue'
+import Translate from '../Translate/Translate.vue'
 const store = usePiniaStore()
 
 const props = defineProps({
   data: {
     type: Object as PropType<PageTemplateInterface>,
-    required: true,
+    required: false,
   },
 })
-
-// const titleTextBlocks = ref([])
-
-// console.log(props.data.titleTextBlocks.length)
-// for(let i = 0; i <= props.data.titleTextBlocks.length; i++){
-
-//   titleTextBlocks.value.push(props.data.titleTextBlocks[i])
-// }
 </script>
 
 <template>
@@ -57,6 +55,7 @@ const props = defineProps({
         />
       </div>
     </div>
+    <Translate v-if="!props.data" />
   </div>
 </template>
 
