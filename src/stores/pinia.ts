@@ -40,7 +40,7 @@ export const usePiniaStore = defineStore('Bionic', {
       const data = await getSanityData(
         `*[_type == "page" && page == "${route}"]`
       )
-      // returnerar data[0] för att få ut objektet direkt.
+      // returnerar data[0] för att få ut objektet direkt eftersom man enbart ska få tillbaka en sida som hämtas från sanity.io
       return data[0]
     },
   },
