@@ -19,4 +19,13 @@ import Header from './pageComponents/Header/Header.vue'
   letter-spacing: 0.017rem;
   line-height: 1.75rem;
 }
+
+p {
+  font-size: 16px;
+}
+
+//global font styling som gör det första delen av ordet fetstilat.
+.bionic-font {
+  font-weight: bold;
+}
 </style>

@@ -9,6 +9,10 @@ const concateWord = (array: string[]) => {
   return newWord
 }
 
+//Detta är den första versionen av att ta ut alla ord i en array som jag gjorde när jag först fick iden.
+//Innan jag hade kollat runt lite, valde att ha kvar denna för det är kul att se hur lite avstånd från en orginaltankte kan leda till ett bättre
+// resultat.
+
 const stringConverter = (desiredString: string) => {
   const currentWord = ref<string[]>([])
   const arrayOfStringWord = ref<string[]>([])
