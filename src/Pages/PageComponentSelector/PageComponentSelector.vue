@@ -17,6 +17,7 @@ const currentPageData = ref()
 
 onBeforeMount(async () => {
   currentRouteName.value = route.currentRoute.value.name
+
   // Hämtar rätt data genom att kolla vad routen har för namn.
   currentPageData.value = await store.getCurrenPageData(currentRouteName.value)
 })

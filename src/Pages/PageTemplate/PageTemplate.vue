@@ -23,29 +23,18 @@ const props = defineProps({
 <template>
   <div class="page">
     <div class="page-hero" v-if="props.data?.heroImage">
-      <img
-        :src="(urlBuilder(props.data.heroImage) as unknown as string)"
-        alt=""
-      />
+      <img :src="(urlBuilder(props.data.heroImage) as unknown as string)" />
       <h2
         v-if="props.data?.title"
         :class="{ bionic: store.bionicMode }"
-        v-html="
-          store.bionicMode
-            ? store.translateToBionicReading(props.data.title)
-            : props.data.title
-        "
+        v-html="store.translateToBionicReading(props.data.title)"
       />
     </div>
 
     <div class="page-content">
       <p
         v-if="props.data?.preamble"
-        v-html="
-          store.bionicMode
-            ? store.translateToBionicReading(props.data.preamble)
-            : props.data.preamble
-        "
+        v-html="store.translateToBionicReading(props.data.preamble)"
       />
       <div class="title-text-blocks">
         <TitleTextBlock

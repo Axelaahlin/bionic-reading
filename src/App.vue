@@ -16,7 +16,7 @@ import Header from './pageComponents/Header/Header.vue'
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  letter-spacing: 0.017rem;
+  letter-spacing: 0.05rem;
   line-height: 1.75rem;
 }
 

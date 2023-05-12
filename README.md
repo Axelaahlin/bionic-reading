@@ -12,7 +12,7 @@ För att starta upp projektet behöver du följa dessa steg.
    5. npm install vue@next
    6. npm install vue-router
 
-4. Om du vill vara sidan kan du köra en npm install efter du dragit ner alla paket.
+4. Om du vill vara på säkra sidan kan du köra en npm install efter du dragit ner alla paket.
 
 5. Om du är i rätt mapp kan du sedan köra npm run serve för att dra igång projektet.
 

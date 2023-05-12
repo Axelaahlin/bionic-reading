@@ -25,19 +25,11 @@ const props = defineProps({
       <h3
         :class="{ bionic: store.bionicMode }"
         v-if="props.data.title"
-        v-html="
-          store.bionicMode
-            ? store.translateToBionicReading(props.data.title)
-            : props.data.title
-        "
+        v-html="store.translateToBionicReading(props.data.title)"
       />
       <p
         v-if="props.data.text"
-        v-html="
-          store.bionicMode
-            ? store.translateToBionicReading(props.data.text)
-            : props.data.text
-        "
+        v-html="store.translateToBionicReading(props.data.text)"
       />
     </div>
   </div>
