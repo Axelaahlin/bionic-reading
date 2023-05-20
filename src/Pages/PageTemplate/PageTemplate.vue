@@ -22,10 +22,11 @@ const props = defineProps({
     required: false,
   },
 })
-console.log('jag renderas')
 
 onMounted(() => {
-  store.getAllTextElements(false)
+  if (store.bionicMode) {
+    store.getAllTextElements(false)
+  }
 })
 </script>
 
@@ -50,7 +51,7 @@ onMounted(() => {
     </div>
     <Translate v-if="route.currentRoute.value.name === 'translate'" />
 
-    <div v-if="!props.data && store.error" class="error">
+    <div v-if="!props.data && store.error">
       <h2>Tyvärr kunde innehållet för denna sida inte hämtas ordentligt</h2>
       <p>Prova att ladda om sidan eller försök igen om en stund.</p>
     </div>

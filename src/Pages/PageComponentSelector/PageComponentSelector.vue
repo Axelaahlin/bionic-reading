@@ -41,7 +41,7 @@ watch(
   <main class="main">
     <PageTemplate
       :data="currentPageData ? currentPageData : undefined"
-      :key="currentRouteName"
+      :key="currentPageData.page"
     />
   </main>
 </template>

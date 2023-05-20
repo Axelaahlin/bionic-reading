@@ -24,7 +24,7 @@ const toggleIsOpen = () => {
       <RouterLink to="/information" @click="toggleIsOpen"
         >information</RouterLink
       >
-      <RouterLink to="/translate" @click="toggleIsOpen"> Test page </RouterLink>
+      <!-- <RouterLink to="/translate" @click="toggleIsOpen"> Test page </RouterLink> -->
     </nav>
 
     <button class="btn" @click="toggleIsOpen" v-if="currentSizeLte('sm')">
