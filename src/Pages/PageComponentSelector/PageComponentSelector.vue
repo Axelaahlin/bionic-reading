@@ -5,18 +5,19 @@
 
 <script lang="ts" setup>
 import { ref, watch, onBeforeMount } from 'vue'
-import PageTemplate from '@/Pages/PageTemplate/PageTemplate.vue'
 import { usePiniaStore } from '@/stores/pinia'
-const store = usePiniaStore()
-
 import { useRouter } from 'vue-router'
+
+import PageTemplate from '@/Pages/PageTemplate/PageTemplate.vue'
+
+const store = usePiniaStore()
 const route = useRouter()
 
-const currentRouteName = ref()
+const currentRouteName = ref('')
 const currentPageData = ref()
 
 onBeforeMount(async () => {
-  currentRouteName.value = route.currentRoute.value.name
+  currentRouteName.value = route.currentRoute.value.name as string
 
   // Hämtar rätt data genom att kolla vad routen har för namn.
   currentPageData.value = await store.getCurrenPageData(currentRouteName.value)
@@ -26,7 +27,7 @@ onBeforeMount(async () => {
 watch(
   () => route.currentRoute.value.name,
   async (newCurrentRoute) => {
-    currentRouteName.value = newCurrentRoute
+    currentRouteName.value = newCurrentRoute as string
     currentPageData.value = await store.getCurrenPageData(
       currentRouteName.value
     )
@@ -37,13 +38,6 @@ watch(
 <!-- Renderas PageTemplate beorende på lite olika parametrar beroende på vad man vill visa -->
 <template>
   <main class="main">
-    <PageTemplate
-      v-if="
-        ((currentRouteName === 'pageone' || currentRouteName === 'pagetwo') &&
-          currentPageData) ||
-        (currentRouteName === 'translate' && !currentPageData)
-      "
-      :data="currentPageData ? currentPageData : null"
-    />
+    <PageTemplate :data="currentPageData ? currentPageData : null" />
   </main>
 </template>

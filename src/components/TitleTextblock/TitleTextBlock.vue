@@ -22,15 +22,10 @@ const props = defineProps({
       />
     </div>
     <div class="title-text-block__details">
-      <h3
-        :class="{ bionic: store.bionicMode }"
-        v-if="props.data.title"
-        v-html="store.translateToBionicReading(props.data.title)"
-      />
-      <p
-        v-if="props.data.text"
-        v-html="store.translateToBionicReading(props.data.text)"
-      />
+      <h3 v-if="props.data.title">
+        {{ props.data.title }}
+      </h3>
+      <p v-if="props.data.text">{{ props.data.text }}</p>
     </div>
   </div>
 </template>

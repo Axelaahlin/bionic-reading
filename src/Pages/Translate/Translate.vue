@@ -3,31 +3,23 @@ import { ref } from 'vue'
 import { usePiniaStore } from '@/stores/pinia'
 const store = usePiniaStore()
 
-const bionic = ref(true)
+const inputText = ref('')
 
-const inputText = ref()
-
-const h1 = 'Skriv in din text här in under'
+const h2 = 'Skriv in din text här in under'
 </script>
 <template>
   <main class="main">
-    <h2
-      v-html="store.bionicMode ? store.translateToBionicReading(h1) : h1"
-      class="page-title"
-    />
+    <h2 class="page-title">{{ h2 }}</h2>
 
     <div class="content">
       <input
         type="text"
         placeholder="Skriv in din text här!"
         v-model="inputText"
-        @input="store.translateToBionicReading(inputText)"
       />
-      <section v-if="!inputText || !store.bionicMode">{{ inputText }}</section>
-      <section
-        v-else-if="store.bionicMode && inputText"
-        v-html="store.translateToBionicReading(inputText)"
-      />
+      <p>
+        {{ inputText }}
+      </p>
     </div>
   </main>
 </template>

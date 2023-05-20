@@ -4,13 +4,17 @@
  -->
 
 <script lang="ts" setup>
-import { PropType } from 'vue'
-import { PageTemplateInterface } from './interface'
-import { urlBuilder } from '@/client'
 import { usePiniaStore } from '@/stores/pinia'
+import { useRouter } from 'vue-router'
+import { urlBuilder } from '@/client'
+import { PropType } from 'vue'
+
 import TitleTextBlock from '@/components/TitleTextblock/TitleTextBlock.vue'
+import { PageTemplateInterface } from './interface'
 import Translate from '../Translate/Translate.vue'
+
 const store = usePiniaStore()
+const route = useRouter()
 
 const props = defineProps({
   data: {
@@ -24,18 +28,13 @@ const props = defineProps({
   <div class="page">
     <div class="page-hero" v-if="props.data?.heroImage">
       <img :src="(urlBuilder(props.data.heroImage) as unknown as string)" />
-      <h2
-        v-if="props.data?.title"
-        :class="{ bionic: store.bionicMode }"
-        v-html="store.translateToBionicReading(props.data.title)"
-      />
+      <h2 v-if="props.data?.title">
+        {{ props.data.title }}
+      </h2>
     </div>
 
     <div class="page-content">
-      <p
-        v-if="props.data?.preamble"
-        v-html="store.translateToBionicReading(props.data.preamble)"
-      />
+      <p v-if="props.data?.preamble">{{ props.data.preamble }}</p>
       <div class="title-text-blocks">
         <TitleTextBlock
           v-if="props.data?.titleTextBlocks"
@@ -44,7 +43,12 @@ const props = defineProps({
         />
       </div>
     </div>
-    <Translate v-if="!props.data" />
+    <Translate v-if="route.currentRoute.value.name === 'translate'" />
+
+    <div v-if="!props.data" class="error">
+      <h2>Tyvärr kunde innehållet för denna sida inte hämtas ordentligt</h2>
+      <p>Prova att ladda om sidan eller försök igen om en stund.</p>
+    </div>
   </div>
 </template>
 

@@ -15,7 +15,7 @@ const store = usePiniaStore()
 
       <RouterLink to="/translate"> Test page </RouterLink>
     </nav>
-    <button class="btn" @click="store.setBionicMode">
+    <button class="btn" @click="store.getAllTextElements(true)">
       {{ store.bionicMode ? 'Stäng av bionicMode' : 'Sätt på bionicMode' }}
     </button>
   </header>
