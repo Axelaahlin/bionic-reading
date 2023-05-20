@@ -59,7 +59,7 @@ const display = stringConverter(text)
 <style lang="scss">
 .content {
   max-width: 100dvw;
-  padding: 10px;
+  padding: var(--spacing-m);
 
   .string {
     display: flex;
@@ -70,9 +70,9 @@ const display = stringConverter(text)
     max-width: 100%;
 
     p {
-      font-size: 16px;
-      letter-spacing: 0.0125rem;
-      line-height: 1.75rem;
+      font-size: var(--font-size-m);
+      letter-spacing: var(--letter-spacing);
+      line-height: var(--line-height);
       margin-right: 3px;
     }
   }

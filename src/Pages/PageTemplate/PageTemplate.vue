@@ -45,7 +45,7 @@ const props = defineProps({
     </div>
     <Translate v-if="route.currentRoute.value.name === 'translate'" />
 
-    <div v-if="!props.data" class="error">
+    <div v-if="!props.data && store.error" class="error">
       <h2>Tyvärr kunde innehållet för denna sida inte hämtas ordentligt</h2>
       <p>Prova att ladda om sidan eller försök igen om en stund.</p>
     </div>
@@ -55,7 +55,7 @@ const props = defineProps({
 <style lang="scss">
 .main {
   .page {
-    padding-bottom: 50px;
+    padding-bottom: var(--spacing-2xl);
     .bionic {
       font-weight: normal;
     }
@@ -72,13 +72,13 @@ const props = defineProps({
         right: 0;
         text-align: center;
         bottom: 5px;
-        padding: 10px 20px;
+        padding: var(--spacing-m) var(--spacing-xl);
         background-color: white;
       }
     }
 
     &-content {
-      padding: 0 20px;
+      padding: 0 var(--spacing-xl);
     }
   }
 }

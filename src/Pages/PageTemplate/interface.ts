@@ -3,9 +3,9 @@ import { TitleTextBlock } from '@/components/TitleTextblock/interface'
 export interface PageTemplateInterface extends SanityDataInterface {
   title: string
   preamble: string
-  heroImage: heroImage
+  heroImage?: heroImage
   page: string
-  titleTextBlocks: TitleTextBlock[]
+  titleTextBlocks?: TitleTextBlock[]
 }
 
 interface SanityDataInterface {

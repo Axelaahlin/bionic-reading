@@ -29,9 +29,9 @@ const h2 = 'Skriv in din text här in under'
   min-height: 50dvh;
 
   h2.page-title {
-    font-size: 40px;
+    font-size: var(--font-sixe-xl);
     text-align: center;
-    margin: 20px 0 10px 0;
+    margin: var(--spacing-xl) var(--spacing-none) var(--spacing-m) 0;
     font-weight: normal;
   }
   .content {
@@ -45,8 +45,8 @@ const h2 = 'Skriv in din text här in under'
     input,
     section {
       width: 50%;
-      margin: 10px;
-      font-size: 18px;
+      margin: var(--spacing-m);
+      font-size: var(--font-sixe-m);
       color: black;
       border: none;
       background: none;
@@ -57,7 +57,7 @@ const h2 = 'Skriv in din text här in under'
     }
 
     input {
-      padding: 10px 10px 2px 0;
+      padding: var(--spacing-m) var(--spacing-m) 2px var(--spacing-none);
       border-bottom: 1px solid black;
 
       &::placeholder {
@@ -73,7 +73,7 @@ const h2 = 'Skriv in din text här in under'
 }
 
 .description {
-  margin: 10px;
+  margin: var(--spacing-m);
 
   h2 {
     font-weight: normal;

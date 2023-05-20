@@ -34,22 +34,24 @@ const props = defineProps({
 .title-text-block {
   background-color: white;
   box-shadow: 0 0.0625rem 0.125rem 0 rgba(0, 0, 0, 0.6);
-  padding: 10px 10px 15px 15px;
-  border-radius: 4px;
-  margin: 30px 0;
+  padding: var(--spacing-m) var(--spacing-m) var(--spacing-l) var(--spacing-l);
+  border-radius: var(--border-radius-m);
+  margin: 30px var(--spacing-none);
   cursor: pointer;
   display: flex;
+  flex-direction: column;
+
+  @media screen and (min-width: 800px) {
+    flex-direction: unset;
+  }
 
   h3 {
-    color: brown;
-    margin-bottom: 10px;
-    &.bionic {
-      font-weight: normal;
-    }
+    color: var(--color-red);
+    margin-bottom: var(--spacing-m);
   }
 
   &__image {
-    margin-right: 20px;
+    margin-right: var(--spacing-xl);
     img {
       width: 300px;
       height: 200px;

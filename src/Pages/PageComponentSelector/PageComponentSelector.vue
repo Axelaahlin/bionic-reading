@@ -9,12 +9,13 @@ import { usePiniaStore } from '@/stores/pinia'
 import { useRouter } from 'vue-router'
 
 import PageTemplate from '@/Pages/PageTemplate/PageTemplate.vue'
+import { PageTemplateInterface } from '../PageTemplate/interface'
 
 const store = usePiniaStore()
 const route = useRouter()
 
 const currentRouteName = ref('')
-const currentPageData = ref()
+const currentPageData = ref({} as PageTemplateInterface)
 
 onBeforeMount(async () => {
   currentRouteName.value = route.currentRoute.value.name as string
@@ -38,6 +39,6 @@ watch(
 <!-- Renderas PageTemplate beorende på lite olika parametrar beroende på vad man vill visa -->
 <template>
   <main class="main">
-    <PageTemplate :data="currentPageData ? currentPageData : null" />
+    <PageTemplate :data="currentPageData ? currentPageData : undefined" />
   </main>
 </template>
