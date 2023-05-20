@@ -36,7 +36,7 @@ const props = defineProps({
   box-shadow: 0 0.0625rem 0.125rem 0 rgba(0, 0, 0, 0.6);
   padding: var(--spacing-m) var(--spacing-m) var(--spacing-l) var(--spacing-l);
   border-radius: var(--border-radius-m);
-  margin: 30px var(--spacing-none);
+  margin: var(--spacing-1xl) var(--spacing-none);
   cursor: pointer;
   display: flex;
   flex-direction: column;

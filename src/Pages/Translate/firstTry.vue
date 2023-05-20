@@ -73,7 +73,7 @@ const display = stringConverter(text)
       font-size: var(--font-size-m);
       letter-spacing: var(--letter-spacing);
       line-height: var(--line-height);
-      margin-right: 3px;
+      margin-right: var(--spacing-s);
     }
   }
 }

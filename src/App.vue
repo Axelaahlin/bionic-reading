@@ -20,6 +20,7 @@ import Header from './pageComponents/Header/Header.vue'
   --spacing-m: 10px;
   --spacing-l: 15px;
   --spacing-xl: 20px;
+  --spacing-1xl: 30px;
   --spacing-2xl: 50px;
 
   --font-size-m: 16px;

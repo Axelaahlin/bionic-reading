@@ -20,6 +20,9 @@ const toggleIsOpen = () => {
     </RouterLink>
 
     <nav class="nav" v-if="!currentSizeLte('sm') || isOpen">
+      <button class="btn" @click="toggleIsOpen" v-if="currentSizeLte('sm')">
+        {{ isOpen ? 'Stäng' : 'Öppna' }}
+      </button>
       <RouterLink to="/" @click="toggleIsOpen">StartPage</RouterLink>
       <RouterLink to="/information" @click="toggleIsOpen"
         >information</RouterLink
@@ -31,7 +34,7 @@ const toggleIsOpen = () => {
       {{ isOpen ? 'Stäng' : 'Öppna' }}
     </button>
 
-    <button class="btn" @click="store.getAllTextElements(true)">
+    <button class="btn" @click="store.getAllTextElements(true)" v-if="!isOpen">
       {{ store.bionicMode ? 'Stäng av bionicMode' : 'Sätt på bionicMode' }}
     </button>
   </header>
@@ -44,11 +47,11 @@ const toggleIsOpen = () => {
   display: flex;
   align-items: center;
   justify-content: space-around;
-  padding: var(--spacing-none) var(--spacing-2xl);
+  padding: var(--spacing-none) var(--spacing-none);
 
   @media screen and (min-width: 435px) {
     justify-content: space-between;
-    padding: var(--spacing-none) var(--spacing-m);
+    padding: var(--spacing-none) var(--spacing-s);
   }
 
   a {
@@ -78,9 +81,19 @@ const toggleIsOpen = () => {
       bottom: 0;
       z-index: 10;
       flex-direction: column;
+      justify-content: flex-start;
       width: 50%;
       background-color: var(--background-grey);
       border-left: var(--spacing-s) solid var(--color-green);
+
+      a {
+        margin: var(--spacing-m);
+      }
+
+      button {
+        margin: var(--spacing-m);
+        width: 50%;
+      }
     }
 
     a {
@@ -101,7 +114,7 @@ const toggleIsOpen = () => {
     }
   }
   .btn {
-    margin-inline: var(--spacing-m);
+    // margin-inline: var(--spacing-m);
     text-align: center;
     border: none;
     font-size: var(--font-size-m);
@@ -110,6 +123,7 @@ const toggleIsOpen = () => {
     border-radius: var(--spacing-m);
     cursor: pointer;
     padding: var(--spacing-m);
+    max-height: 48px;
   }
 }
 </style>
