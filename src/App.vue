@@ -26,6 +26,9 @@ import Header from './pageComponents/Header/Header.vue'
   --font-size-2L: 30px;
   --font-sixe-xl: 40px;
 
+  --font-bold: bold;
+  --font-normal: normal;
+
   --letter-spacing: 0.0125rem;
   --line-height: 1.75rem;
 
@@ -48,6 +51,6 @@ p {
 
 //global font styling som gör det första delen av ordet fetstilat.
 .bionic-font {
-  font-weight: bold;
+  font-weight: var(--font-bold);
 }
 </style>

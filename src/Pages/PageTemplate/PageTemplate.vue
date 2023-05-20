@@ -7,7 +7,7 @@
 import { usePiniaStore } from '@/stores/pinia'
 import { useRouter } from 'vue-router'
 import { urlBuilder } from '@/client'
-import { PropType } from 'vue'
+import { PropType, onMounted } from 'vue'
 
 import TitleTextBlock from '@/components/TitleTextblock/TitleTextBlock.vue'
 import { PageTemplateInterface } from './interface'
@@ -21,6 +21,11 @@ const props = defineProps({
     type: Object as PropType<PageTemplateInterface>,
     required: false,
   },
+})
+console.log('jag renderas')
+
+onMounted(() => {
+  store.getAllTextElements(false)
 })
 </script>
 
@@ -57,7 +62,7 @@ const props = defineProps({
   .page {
     padding-bottom: var(--spacing-2xl);
     .bionic {
-      font-weight: normal;
+      font-weight: var(--font-normal);
     }
 
     &-hero {
@@ -71,7 +76,7 @@ const props = defineProps({
         left: 0;
         right: 0;
         text-align: center;
-        bottom: 5px;
+        bottom: var(--spacing-s);
         padding: var(--spacing-m) var(--spacing-xl);
         background-color: white;
       }

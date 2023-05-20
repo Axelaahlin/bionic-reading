@@ -17,8 +17,8 @@ const h2 = 'Skriv in din text här in under'
         placeholder="Skriv in din text här!"
         v-model="inputText"
       />
-      <p>
-        {{ inputText }}
+      <p class="hej">
+        {{ inputText ? inputText : 'Här kommer din text att komma' }}
       </p>
     </div>
   </main>

@@ -39,6 +39,9 @@ watch(
 <!-- Renderas PageTemplate beorende på lite olika parametrar beroende på vad man vill visa -->
 <template>
   <main class="main">
-    <PageTemplate :data="currentPageData ? currentPageData : undefined" />
+    <PageTemplate
+      :data="currentPageData ? currentPageData : undefined"
+      :key="currentRouteName"
+    />
   </main>
 </template>

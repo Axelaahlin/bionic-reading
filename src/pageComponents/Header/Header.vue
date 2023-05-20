@@ -9,7 +9,6 @@ const store = usePiniaStore()
 const isOpen = ref(false)
 const toggleIsOpen = () => {
   isOpen.value = !isOpen.value
-  console.log(isOpen.value)
 }
 </script>
 
@@ -81,7 +80,7 @@ const toggleIsOpen = () => {
       flex-direction: column;
       width: 50%;
       background-color: var(--background-grey);
-      border-left: 5px solid var(--color-green);
+      border-left: var(--spacing-s) solid var(--color-green);
     }
 
     a {
